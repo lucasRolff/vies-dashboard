@@ -23,6 +23,7 @@
                             <th scope="col">Valid</th>
                             <th scope="col">Client ID</th>
                             <th scope="col">Invoice ID</th>
+                            <th scope="col"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -35,6 +36,7 @@
                                 <td>@if($da->valid == "1")<span class="badge badge-success">Valid</span>@else<span class="badge badge-danger">Invalid</span>@endif</td>
                                 <td><a href="https://shop.hosting4real.net/admin/clientssummary.php?userid={{ $da->client_id }}">{{ $da->client_id }}</a></td>
                                 <td><a href="https://shop.hosting4real.net/admin/invoices.php?action=edit&id={{ $da->invoice_id }}">{{ $da->invoice_id }}</a></td>
+                                <td>@if($da->vies_image)<a href="/download/{{ $da->id }}" role="button" data-toggle="tooltip" data-placement="top" title="Download VIES screenshot" class="btn btn-dark btn-sm"><i class="fas fa-file-download" style="color:white;"></i></a>@endif</td>
                             </tr>
                         @endforeach
                         </tbody>
