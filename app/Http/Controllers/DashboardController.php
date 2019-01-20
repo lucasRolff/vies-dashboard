@@ -38,7 +38,7 @@ class DashboardController extends Controller
      */
     public function download(Validation $id)
     {
-        if($id->vies_image) {
+        if ($id->vies_image) {
             return Storage::download($id->vies_image);
         }
     }
