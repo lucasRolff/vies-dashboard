@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::match(['get', 'post'], '/add', 'ValidationController@addAction')->name('add_number');
+Route::get('/download/{id}', 'DashboardController@download')->name('download');
