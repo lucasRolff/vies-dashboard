@@ -18,8 +18,7 @@ class ValidationController extends Controller
         $invoice_id = $request->invoice_id;
         $token      = $request->token;
 
-        if($token != env('VIES_ACCESS_TOKEN', 'supersecure'))
-        {
+        if ($token != env('VIES_ACCESS_TOKEN', 'supersecure')) {
             abort(403, "You probably shouldn't be here.");
         }
 
@@ -35,8 +34,7 @@ class ValidationController extends Controller
             $execution_time_pdf = ($time_end_pdf - $time_start);
 
             Log::info('VIES call time: ' . $execution_time_vies . '; Screenshot Generation time: ' . $execution_time_pdf . ' for VAT Number: ' . "$validVAT->vatNumber");
-
-        } catch( VATCheckUnavailableException $e ){
+        } catch (VATCheckUnavailableException $e) {
             abort(503, "VIES is down.. Surprise?");
         }
 
