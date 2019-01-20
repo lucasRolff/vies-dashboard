@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Validation;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -28,5 +29,17 @@ class DashboardController extends Controller
         ->get();
 
         return view('dashboard')->with(['data' => $data]);
+    }
+
+    /**
+     * Download VIES screenshot.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function download(Validation $id)
+    {
+        if($id->vies_image) {
+            return Storage::download($id->vies_image);
+        }
     }
 }
